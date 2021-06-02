@@ -4,7 +4,6 @@ export default (props) => {
     console.log('render called');
     const [count, setCount] = useState(0);
 
-
     const _increment = () => setCount(count + 1);
 
     //componentDidUpdate - Functional style
@@ -22,6 +21,12 @@ export default (props) => {
         console.log('This should only run once');
     }, [])
 
+    // componentWillUnmount - Functional style
+    useEffect(() => {
+        return () => {
+            console.log('Runs when the Component is removed');
+        }
+    }, []);
 
     return (
         <>
